@@ -39,3 +39,8 @@
       }
       return true;
   }
+
+  module.exports = {
+      isUnique: isUnique,
+      isUnique2: isUnique2
+  }
