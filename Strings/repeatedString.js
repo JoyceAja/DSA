@@ -26,34 +26,33 @@
  */
 
  const repeatedString = (A, B) => {
-     let newStr = "";
-     let idx = 0;
-     let p1 = 0;
-     let p2 = 0;
-     let count = 0;
-
-     //Setting my starting index of my A or rather should i just slice it out? 
-    while(A[idx] !== B[0] && idx < A.length){
-        idx++
+    let newStr = A;
+    let p1 = 0;
+    let p2 = 0;
+    let count = 0;
+   
+   //I need to loop through my B and newStr
+   //Thinking of solving these linearly
+    while(p2 < B.length && p1 < 2 * B.length) {
+        //if my newString is a little short of my string B add A to newStr
+        if(!newStr[p1]){
+            newStr += A
+            count++
+        }
+        
+        //When to stop my while loop => at the end of string B
+        if(newStr[p1] === B[p2] && p2 !== B.length - 1){
+            p1++
+            p2++
+        }else if(newStr[p1] !== B[p2]){
+            p1++
+            p2 = 0
+        }else if(newStr[p1] === B[p2] && p2 === B.length - 1){
+           count++
+           return count;
+        }
     }
-    //reassigning newStr
-     newStr = A.slice(idx);
-
-     //I need to loop through my B and newStr
-     //Thinking of solving these linearly
-     while(p2 < B.length){
-         if(!newStr[p1]){
-             newStr += A
-             count++
-         }
-         if(newStr[p1] === B[p2] && p2 !== B.length - 1){
-             p1++
-             p2++
-         }else if(newStr[p1] !== B[p2] && p2 !== B.length - 1){
-             return false;
-         }
-     }
-     return count;
+   return -1;
      
  }
 let A = "abcd", B = "cdabcdab"
