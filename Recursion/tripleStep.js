@@ -25,7 +25,13 @@
      return 1 + tripleSteps(n-1) + tripleSteps(n-2) + tripleSteps(n-3)
  }
  // with memoization
-
+ const betterSolution = (n, memo={}) => {
+     if(n < 0) return 0
+     if(n === 1 || n === 0) return n
+     if(memo[n]) return memo[n]
+     memo[n] = tripleSteps(n-1, memo) + tripleSteps(n-2, memo) + tripleSteps(n-3, memo)
+     return memo[n]
+ }
  /**
   * 3
   * 21
@@ -33,4 +39,5 @@
   * 1111
   */
 
- console.log(tripleSteps(3))
+//  console.log(tripleSteps(20))
+console.log(betterSolution(100))
