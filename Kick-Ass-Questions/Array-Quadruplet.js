@@ -17,15 +17,21 @@
  const findArrayQuadruplet = (arr, s) => {
     // your code goes here
     const sortArr = arr.sort((a,b) => a-b);
-    let result = [];
-    let left = 0;
-    let right = arr.length -1;
     
-    for(let i = 0; i <arr.length - 4; i++){
-      for(let j = i+1; j < arr.length; j++){
-        
+    for(let i = 0; i<arr.length - 4; i++){
+      for(let j = i+1; j < arr.length - 3; j++){
+          let p1 = j+1;
+          let p2 = arr.length - 1;
+          let r = s - arr[i] + arr[j]
+          if(arr[p1] + arr[p2] > s){
+              p2--
+          }else if(arr[p1] + arr[p2] < s){
+              p1++
+          }else{
+              return [arr[i], arr[j], arr[p1], arr[p2]]
+          }
       }
-    }
+  }
     
     
   }
