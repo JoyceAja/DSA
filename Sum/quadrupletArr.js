@@ -19,12 +19,14 @@
              let p1 = j+1;
              let p2 = arr.length - 1;
              let r = s - arr[i] + arr[j]
-             if(arr[p1] + arr[p2] > s){
-                 p2--
-             }else if(arr[p1] + arr[p2] < s){
-                 p1++
-             }else{
-                 return [arr[i], arr[j], arr[p1], arr[p2]]
+             while(p1 < p1){
+                if(arr[p1] + arr[p2] > s){
+                    p2--
+                }else if(arr[p1] + arr[p2] < s){
+                    p1++
+                }else{
+                    return [arr[i], arr[j], arr[p1], arr[p2]]
+                }
              }
          }
      }
