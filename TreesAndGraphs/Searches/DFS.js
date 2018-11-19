@@ -44,7 +44,7 @@ const dfs_iterative = (root, target) => {
  * Depth First Search for Graphs
  */
 
- const dfs_recursive_graph = (root, target) => {
+ const dfs_recursive_graph = (root) => {
      if(root === null) return;
 
      for(let i=0; i<root.childen.length; i++){
