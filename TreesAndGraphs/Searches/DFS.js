@@ -44,13 +44,32 @@ const dfs_iterative = (root, target) => {
  * Depth First Search for Graphs
  */
 
- const dfs_recursive_graph = (root) => {
+ const dfs_recursive_graph = (root, target) => {
      if(root === null) return;
 
+     if(root.val === target){
+         return target;
+     }
      for(let i=0; i<root.childen.length; i++){
          if(!root.children[i].visted){
              dfs_recursive_graph(root.childen[i])
          }
      }
 
+ }
+
+ const dfs_iterative_graph = (root, target) => {
+     let stack = [root];
+
+     while(stack.length > 0){
+         let node = stack.pop();
+
+         if(root.val === target){
+             return target;
+         }
+         
+         for(let i=node.children; i > 0; i++){
+             stack.push(node.childen[i])
+         }
+     }
  }
